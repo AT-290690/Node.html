@@ -710,6 +710,7 @@ const getElementOffset = (element: Element) => {
 // };
 cy.on('dblclick', 'node', () => {
   elements.commentsSection.style.display = 'block';
+  elements.connectionButton.style.display = 'none';
 });
 cy.ready(() => {
   // elements.themeButton.addEventListener('click', () => {
