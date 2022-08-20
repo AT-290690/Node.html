@@ -548,7 +548,7 @@ input:focus {
 .cm-completionLabel,
 .cm-completionMatchedText,
 .cm-completionDetail {
-  font-family: var(--font-family);
+  font-family: var(--font-primary);
 }
 
 .cm-searchMatch {
