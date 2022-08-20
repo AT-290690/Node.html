@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node.html</title>
+    <link href="./style.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="./assets/images/chip.svg" />
+  </head>
+  <body>
+    <div id="tree"></div>
+    <div id="trees-switch">
+      <button id="trees-button-a" title="previous trees">←</button>
+      <button id="trees-button-b" title="next trees">→</button>
+    </div>
+    </div>
+    <button id="connection-button" style="display: none" title="morphism">
+      <span id="connection-node-A">𝐀</span>
+      <span id="connection-arrow"> → </span>
+      <span id="connection-node-B">𝐁</span>
+    </button>
+    <!-- <button id="theme-button" title="change theme">☾</button> -->
+    <!-- <button id="invert-button" title="invert edges;">
+      <div style="display: flex; gap: 5px"><span>𝗳</span><sup>-1</sup></div>
+    </button> -->
+    <button id="trees-button" title="trees">trees</button>
+    <!-- <button id="tutorial-button" title="tutorial">tutorial</button> -->
+    <!-- <div id="tutorial-container">
+      <img
+        width="332"
+        height="302"
+        id="tutorial"
+        src="./assets/images/favicon.png"
+        style="pointer-events: none"
+      />
+      <button id="tutorial-next" title="next tutorial">-></button>
+    </div> -->
+    <div id="comments-section"></div>
+    <!-- <button id="app" title="open-app-window">
+      <img src="./assets/images/shisharka.svg" width="45" />
+    </button> -->
+
+    <div id="info-pannel">
+      <input id="variableInput" placeholder="..." spellcheck="false" disabled />
+      <div style="display: flex; justify-content: center">
+        <span id="selectedIndex"></span>
+      </div>
+    </div>
+
+
+
+
+    <div id="header">
+      <button id="open-app" title="open app window" class="header-button svgIcon" >
+        <svg  xmlns="http://www.w3.org/2000/svg"
+        width="18" height="18"
+       viewBox="0 0 118.2 116.32">
+       <rect class="a" x="34.72" y="35.83" width="46.99"
+         height="45.48" />
+       <rect class="a" x="53.72" y="-22.24" width="10.13"
+         height="86.65"
+         transform="translate(37.7 79.87) rotate(-90)" />
+       <rect class="a" x="77.47" width="9.57" height="24.51"
+         transform="translate(164.5 24.51) rotate(180)" />
+       <rect class="a" x="54.79" width="9.57" height="24.51"
+         transform="translate(119.15 24.51) rotate(180)" />
+       <rect class="a" x="32.12" width="9.57" height="24.51"
+         transform="translate(73.81 24.51) rotate(180)" />
+       <rect class="a" x="15.57" y="18.46" width="10.58"
+         height="79.04"
+         transform="translate(41.72 115.97) rotate(180)" />
+       <rect class="a" x="7.47" y="22.79" width="9.57"
+         height="24.51"
+         transform="translate(47.3 22.79) rotate(90)" />
+       <rect class="a" x="7.47" y="45.46" width="9.57"
+         height="24.51"
+         transform="translate(69.98 45.46) rotate(90)" />
+       <rect class="a" x="7.47" y="68.14" width="9.57"
+         height="24.51"
+         transform="translate(92.65 68.14) rotate(90)" />
+       <rect class="a" x="53.15" y="52.42" width="10.9"
+         height="86.4"
+         transform="translate(154.22 37.03) rotate(90)" />
+       <rect class="a" x="31.49" y="91.81" width="9.57"
+         height="24.51" />
+       <rect class="a" x="54.16" y="91.81" width="9.57"
+         height="24.51" />
+       <rect class="a" x="76.83" y="91.81" width="9.57"
+         height="24.51" />
+       <rect class="a" x="92.05" y="18.51" width="9.87"
+         height="79.04" />
+       <rect class="a" x="101.16" y="68.71" width="9.57"
+         height="24.51"
+         transform="translate(24.98 186.91) rotate(-90)" />
+       <rect class="a" x="101.16" y="46.04" width="9.57"
+         height="24.51"
+         transform="translate(47.65 164.24) rotate(-90)" />
+       <rect class="a" x="101.16" y="23.37" width="9.57"
+         height="24.51"
+         transform="translate(70.32 141.56) rotate(-90)" />
+     </svg>      </button>
+
+
+      <button id="key"  aria-label="Stashed Code" title="stash" class="header-button svgIcon">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="18" height="18" viewBox="0 0 30 70" style="overflow: hidden; background: transparent;"><defs></defs><g id="two-0" transform="matrix(1 0 0 1 0 0)" opacity="1"><path transform="matrix(1 0 0 1 5 15)" id="two-1" d="M -5 -15 L 5 -15 L 5 15 L -5 15 Z "  stroke="undefined" stroke-width="1" stroke-opacity="1" fill-opacity="1" visibility="visible" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4"></path><path transform="matrix(1 0 0 1 30 22.5)" id="two-2" d="M -5 -12.5 L 5 -12.5 L 5 12.5 L -5 12.5 Z "  stroke="undefined" stroke-width="1" stroke-opacity="1" fill-opacity="1" visibility="visible" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4"></path><path transform="matrix(1 0 0 1 12.5 5)" id="two-3" d="M -12.5 -5 L 12.5 -5 L 12.5 5 L -12.5 5 Z "  stroke="undefined" stroke-width="1" stroke-opacity="1" fill-opacity="1" visibility="visible" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4"></path><path transform="matrix(1 0 0 1 15 30)" id="two-4" d="M -15 -5 L 15 -5 L 15 5 L -15 5 Z "  stroke="undefined" stroke-width="1" stroke-opacity="1" fill-opacity="1" visibility="visible" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4"></path><path transform="matrix(1 0 0 1 15 45)" id="two-5" d="M -5 -20 L 5 -20 L 5 20 L -5 20 Z "  stroke="undefined" stroke-width="1" stroke-opacity="1" fill-opacity="1" visibility="visible" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4"></path><path transform="matrix(1 0 0 1 19 51)" id="two-6" d="M -9 -4 L 9 -4 L 9 4 L -9 4 Z "  stroke="undefined" stroke-width="1" stroke-opacity="1" fill-opacity="1" visibility="visible" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4"></path><path transform="matrix(1 0 0 1 21 66)" id="two-7" d="M -11 -4 L 11 -4 L 11 4 L -11 4 Z "  stroke="undefined" stroke-width="1" stroke-opacity="1" fill-opacity="1" visibility="visible" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4"></path></g>
+</svg>
+</button>
+    </div>
+    <div id="editor-container"></div>
+    <input id="console" aria-label="Command Console" class="info_line" autocomplete="off" spellcheck="false"></input>
+    <img src="./assets/images/alert.svg" class="droneIcon" id="alert-drone-icon" />
+    <img src="./assets/images/error.svg" class="droneIcon" id="error-drone-icon" />
+    <img src="./assets/images/sparckle.svg" class="droneIcon" id="formatter-drone-icon" />
+    <img src="./assets/images/key-drone-icon.svg" class="droneIcon" id="key-drone-icon" />
+    <img src="./assets/images/question.svg" class="droneIcon" id="question-drone-icon" />
+    <img src="./assets/images/x-icon.svg" class="droneIcon" id="x-drone-icon" />
+
+    <svg
+      id="drone"
+      class="float"
+      xmlns="http://www.w3.org/2000/svg"
+      version="1.1"
+      width="35"
+      height="50"
+      style="overflow: hidden; background: transparent; border: none"
+    >
+      <defs></defs>
+      <g id="two-299" transform="matrix(1 0 0 1 0 0)" opacity="1">
+        <g id="two-308" transform="matrix(0.3 0 0 0.3 5 5)" opacity="1">
+          <path
+            transform="matrix(1 0 0 1 58 6)"
+            id="two-300"
+            d="M -6 -6 L 6 -6 L 6 6 L -6 6 Z "
+            fill="var(--drone2)"
+            stroke="undefined"
+            stroke-width="1"
+            stroke-opacity="1"
+            fill-opacity="1"
+            visibility="visible"
+            stroke-linecap="butt"
+            stroke-linejoin="miter"
+            stroke-miterlimit="4"
+          ></path>
+          <path
+            transform="matrix(1 0 0 1 45 30)"
+            id="two-301"
+            d="M -25 -10 L 25 -10 L 25 10 L -25 10 Z "
+            fill="var(--drone3)"
+            stroke="undefined"
+            stroke-width="1"
+            stroke-opacity="1"
+            fill-opacity="1"
+            visibility="visible"
+            stroke-linecap="butt"
+            stroke-linejoin="miter"
+            stroke-miterlimit="4"
+          ></path>
+          <path
+            transform="matrix(1 0 0 1 35 40)"
+            id="two-302"
+            d="M -25 -10 L 25 -10 L 25 10 L -25 10 Z "
+            fill="var(--drone3)"
+            stroke="undefined"
+            stroke-width="1"
+            stroke-opacity="1"
+            fill-opacity="1"
+            visibility="visible"
+            stroke-linecap="butt"
+            stroke-linejoin="miter"
+            stroke-miterlimit="4"
+          ></path>
+          <path
+            transform="matrix(1 0 0 1 35 57.5)"
+            id="two-303"
+            d="M -25 -7.5 L 25 -7.5 L 25 7.5 L -25 7.5 Z "
+            fill="var(--drone2)"
+            stroke="undefined"
+            stroke-width="1"
+            stroke-opacity="1"
+            fill-opacity="1"
+            visibility="visible"
+            stroke-linecap="butt"
+            stroke-linejoin="miter"
+            stroke-miterlimit="4"
+          ></path>
+          <path
+            transform="matrix(1 0 0 1 50 60)"
+            id="two-304"
+            d="M -20 -20 L 20 -20 L 20 20 L -20 20 Z "
+            fill="var(--drone2)"
+            stroke="undefined"
+            stroke-width="1"
+            stroke-opacity="1"
+            fill-opacity="1"
+            visibility="visible"
+            stroke-linecap="butt"
+            stroke-linejoin="miter"
+            stroke-miterlimit="4"
+          ></path>
+          <path
+            transform="matrix(1 0 0 1 42.5 97.5)"
+            id="two-305"
+            d="M -12.5 -17.5 L 12.5 -17.5 L 12.5 17.5 L -12.5 17.5 Z "
+            fill="var(--drone1)"
+            stroke="undefined"
+            stroke-width="1"
+            stroke-opacity="1"
+            fill-opacity="1"
+            visibility="visible"
+            stroke-linecap="butt"
+            stroke-linejoin="miter"
+            stroke-miterlimit="4"
+          ></path>
+          <path
+            transform="matrix(1 0 0 1 13 80)"
+            id="two-306"
+            d="M -5 -5 L 5 -5 L 5 5 L -5 5 Z "
+            fill="var(--drone2)"
+            stroke="undefined"
+            stroke-width="1"
+            stroke-opacity="1"
+            fill-opacity="1"
+            visibility="visible"
+            stroke-linecap="butt"
+            stroke-linejoin="miter"
+            stroke-miterlimit="4"
+          ></path>
+          <path
+            transform="matrix(1 0 0 1 51.5 61.5)"
+            id="two-307"
+            d="M -6.5 -6.5 L 6.5 -6.5 L 6.5 6.5 L -6.5 6.5 Z "
+            fill="var(--drone4)"
+            stroke="undefined"
+            stroke-width="1"
+            stroke-opacity="1"
+            fill-opacity="1"
+            visibility="visible"
+            stroke-linecap="butt"
+            stroke-linejoin="miter"
+            stroke-miterlimit="4"
+          ></path>
+        </g>
+      </g>
+    </svg>
+    <audio src="./assets/sounds/sound0.wav"></audio>
+    <audio src="./assets/sounds/sound1.wav"></audio>
+    <audio src="./assets/sounds/sound2.wav"></audio>
+    <audio src="./assets/sounds/sound3.wav"></audio>
+    <audio src="./assets/sounds/sound4.wav"></audio>
+    <audio src="./assets/sounds/sound5.wav"></audio>
+    <audio src="./assets/sounds/sound6.wav"></audio>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.21.1/cytoscape.min.js"></script>
+    <script type="module">
+      import { CodeMirror } from './src/editor/editor.bundle.js';
+      window.exports = {};
+      const _seciton = document.getElementById('comments-section');
+      window.CodeMirror = CodeMirror(_seciton);
+      window.CodeMirror.setSize(
+        window.innerWidth - 5,
+        window.innerHeight - 72
+      );
+      window.CodeMirror.changeFontSize(8);
+      _seciton.style.display = 'none';
+    </script>
+    <script type="module" src="./dist/main.js"></script>
+    <script src="dist/graph.js"></script>
+  </body>
+</html>

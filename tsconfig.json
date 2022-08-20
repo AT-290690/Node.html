@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "target": "es2015",
+    "module": "es2015",
+    "moduleResolution": "node"
+  },
+  "include": ["src", "dist/commands"],
+  "typeRoots": ["src/custom-types", "node_modules/@types"]
+}
