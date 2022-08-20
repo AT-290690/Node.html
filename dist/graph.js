@@ -149,22 +149,6 @@ const cy = cytoscape({
             }
         },
         {
-            selector: 'edge[label]',
-            style: {
-                label: 'data(label)',
-                'text-outline-color': CURRENT_THEME.nodes,
-                'text-outline-width': 2,
-                'font-size': '15px'
-            }
-        },
-        {
-            selector: 'edge[label]:selected',
-            style: {
-                'text-outline-color': CURRENT_THEME.selection,
-                'text-outline-width': 3
-            }
-        },
-        {
             selector: 'node',
             style: {
                 shape: 'rectangle',
@@ -284,7 +268,7 @@ const addEdge = (vertex, label) => {
 const inspectSelectionIndex = (selection, opt = '') => {
     elements.selectedIndex.style.display = 'block';
     elements.variableInput.style.display = 'block';
-    elements.selectedIndex.textContent = `${selection.label || 'none'} (${selection.id}) : ${selection.type} ${opt}`;
+    elements.selectedIndex.textContent = `${selection.type} ${opt}`;
 };
 const deselectIndex = () => {
     elements.selectedIndex.textContent = '';
@@ -416,19 +400,19 @@ const clearSelection = () => {
     memo.lastSelection.id = undefined;
 };
 const renameVariable = (value = DEFAULT_TOKEN) => {
-    const label = value.trim();
     if (memo.lastSelection.type === 'node') {
+        const label = value.trim();
         cy.nodes(`#${memo.lastSelection.id}`)
             .first()
             .data({
             label: label === '' ? DEFAULT_TOKEN : label
         });
     }
-    else if (memo.lastSelection.type === 'edge') {
-        cy.edges(`#${memo.lastSelection.id}`).first().data({
-            label
-        });
-    }
+    // else if (memo.lastSelection.type === 'edge') {
+    //   cy.edges(`#${memo.lastSelection.id}`).first().data({
+    //     label
+    //   });
+    // }
 };
 const eraseCharacter = () => elements.variableInput.value.substring(0, elements.variableInput.value.length - 1);
 const clearTree = (nodes = true, edges = true) => {

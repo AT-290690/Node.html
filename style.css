@@ -6,7 +6,8 @@
   --comment: #555c77;
   --linenumbers: #3e4d67;
   --border: #6b84b0;
-  --background-primary: #131419;
+  --background-primary: #0000008a;
+  --background-thirdly: #000000;
   --background-secondary: #313343;
   --color-primary: #809ac6;
   --color-secondary: #42c6ff;
@@ -174,7 +175,7 @@
   font-family: 'Fantastic';
   padding: 10px;
   text-align: center;
-  background: var(--background-primary);
+  background: var(--background-thirdly);
   border: none;
   border-top: 3px solid var(--color-secondary);
   z-index: 1;
@@ -316,7 +317,7 @@
   user-select: none;
   border: solid 1px var(--color-primary);
   padding: 20px;
-  background-color: var(--background-primary);
+  background-color: var(--background-thirdly);
   max-width: 500px;
   white-space: nowrap;
   overflow: hidden;
@@ -324,7 +325,6 @@
 }
 #comments-section {
   position: absolute;
-  opacity: 0.84;
   border: solid 1px var(--color-secondary);
   background: transparent;
   top: 0px;
@@ -358,14 +358,14 @@ textarea {
 
 body {
   user-select: none;
-  background-color: var(--background-primary);
+  background-color: var(--background-thirdly);
   overflow: hidden;
   margin: 0;
   height: 100vh;
 }
 #console:focus {
   color: var(--icons);
-  background-color: var(--background-primary);
+  background-color: var(--background-thirdly);
 }
 #console {
   outline: none;
@@ -391,7 +391,7 @@ body {
   font-family: var(--font-primary);
   font-style: normal;
   letter-spacing: -0.05em;
-  background-color: var(--background-primary);
+  background-color: var(--background-thirdly);
   /* visibility: hidden; */
   padding: 5px;
   padding-inline-start: 10px;
@@ -449,7 +449,7 @@ body {
   display: flex;
   align-items: center;
 
-  background-color: var(--background-primary);
+  background-color: var(--background-thirdly);
   /* border-bottom: solid var(--border-width) var(--comment); */
   position: fixed;
   z-index: 1000;
@@ -520,7 +520,7 @@ input {
 }
 input:focus {
   background-color: var(--icons);
-  color: var(--background-primary);
+  color: var(--background-thirdly);
 }
 @keyframes fadeInOpacity {
   0% {
