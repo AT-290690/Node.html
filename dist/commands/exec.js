@@ -7,38 +7,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { alertIcon, consoleElement, errorIcon, keyIcon, questionIcon, xIcon } from '../main.js';
-import { printErrors, playSound, State, droneIntel } from './utils.js';
+import { consoleElement } from '../main.js';
+import { printErrors, State } from './utils.js';
 const editor = window['CodeMirror'];
 export const execute = (CONSOLE) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a, _b;
+    var _a;
     consoleElement.classList.remove('error_line');
     consoleElement.classList.add('info_line');
     const selectedConsoleLine = CONSOLE.value.trim();
     const [CMD, ...PARAMS] = selectedConsoleLine.split(' ');
     switch ((_a = CMD === null || CMD === void 0 ? void 0 : CMD.trim()) === null || _a === void 0 ? void 0 : _a.toUpperCase()) {
-        case 'EMPTY':
+        case 'EMP':
             State.source = editor.getValue();
             editor.setValue('');
             consoleElement.value = '';
-            playSound(5);
-            droneIntel(xIcon);
-            break;
-        case 'ABOUT':
-            State.source = editor.getValue();
-            editor.setValue(`/* 
-  Notepad.js
-
-  ✨ Features ✨
-
-  * Write and Run simple JavaScript snippets
-  * Store your snippets in browser storage
-  * Share existing github snippets (gysts)
-  * Hide certain parts of the snippets
-  
-*/`);
-            droneIntel(questionIcon);
-            playSound(5);
             break;
         case 'LICENSE':
             State.source = editor.getValue();
@@ -65,77 +47,9 @@ export const execute = (CONSOLE) => __awaiter(void 0, void 0, void 0, function* 
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
       */`);
-            droneIntel(questionIcon);
-            playSound(5);
             break;
-        case 'LIST':
-            const out = [];
-            for (let i = 0; i < localStorage.length; ++i) {
-                const key = localStorage.key(i);
-                if (key.includes('stash-'))
-                    out.push(key.split('stash-')[1]);
-            }
-            editor.setValue(out.length
-                ? `/*
-Code stash: 
-
-${out.join('\n')}
-
-LOAD name
-*/`
-                : `/* 
-Your code stash is empty...
-
-SAVE name
-*/`);
-            playSound(3);
-            droneIntel(keyIcon);
-            break;
-        case 'LOAD':
-            State.source = editor.getValue();
-            editor.setValue(localStorage.getItem(PARAMS[0] ? 'stash-' + PARAMS[0] : 'stash-main'));
-            playSound(3);
-            droneIntel(keyIcon);
-            consoleElement.value = '';
-            break;
-        case 'SAVE':
-            consoleElement.value = '';
-            localStorage.setItem(PARAMS[0] ? 'stash-' + PARAMS[0] : 'stash-main', editor.getValue());
-            playSound(6);
-            droneIntel(keyIcon);
-            break;
-        case 'DELETE':
-            State.source = editor.getValue();
-            localStorage.removeItem(PARAMS[0] ? 'stash-' + PARAMS[0] : 'stash-main');
-            consoleElement.value = '';
-            playSound(5);
-            droneIntel(xIcon);
-            break;
-        case 'DROP':
-            State.source = editor.getValue();
-            for (let i = 0; i < localStorage.length; ++i) {
-                const key = localStorage.key(i);
-                if (key.includes('stash-'))
-                    localStorage.removeItem(key);
-            }
-            consoleElement.value = '';
-            editor.setValue('');
-            droneIntel(xIcon);
-            playSound(5);
-            break;
-        case 'SOUND':
-            switch ((_b = PARAMS[0]) === null || _b === void 0 ? void 0 : _b.toUpperCase()) {
-                case 'ON':
-                    State.mute = 0;
-                    localStorage.setItem('mute', '0');
-                    droneIntel(alertIcon);
-                    break;
-                case 'OFF':
-                    State.mute = 1;
-                    localStorage.setItem('mute', '1');
-                    droneIntel(xIcon);
-                    break;
-            }
+        case '<>':
+            editor.setValue(`<script>\n${editor.getValue()}\n</script>`);
             break;
         case 'HELP':
             State.source = editor.getValue();
@@ -147,15 +61,11 @@ SAVE name
  Enter a command in the console
  ---------[COMMANDS]---------
  HELP: list these commands
- EMPTY: clears the editor content
- LIST: list stash content
- SOUND ON:  enable sounds
- SOUND OFF: dissable sounds
+ EMP: clears the editor content
+ <>: wrap editor content in a script tag
  LICENSE: read license info
  ----------------------------
 */`);
-            playSound(4);
-            droneIntel(questionIcon);
             consoleElement.value = '';
             break;
         default:
@@ -163,8 +73,6 @@ SAVE name
                 printErrors(CMD + ' does not exist!');
             else
                 consoleElement.value = '';
-            droneIntel(errorIcon);
-            playSound(0);
             break;
     }
 });

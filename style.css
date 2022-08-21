@@ -44,10 +44,6 @@
   --meta: #4f73f6;
   --regexp: #93ddfb;
   --font-primary: 'Fantastic';
-  --drone1: #833783;
-  --drone2: orchid;
-  --drone3: pink;
-  --drone4: #2a2c2e;
   --hover: #ec8bd6;
 }
 @font-face {
@@ -339,15 +335,6 @@
   pointer-events: none;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 text,
 input,
 button,
@@ -371,7 +358,7 @@ body {
   outline: none;
   border: none;
   resize: none;
-  padding-left: 50px;
+  padding-left: 10px;
   height: 50px;
   /* margin-left: 50px; */
   position: fixed;
@@ -454,56 +441,12 @@ body {
   position: fixed;
   z-index: 1000;
 }
-.droneIcon,
-#drone {
-  cursor: pointer;
-  bottom: 0px;
-  left: 5px;
-  text-align: center;
-  padding: 0px;
-  background-color: transparent;
-  position: fixed;
-  z-index: 1000;
-}
-.droneIcon {
-  bottom: 50px;
-  left: 0px;
-  visibility: hidden;
-}
 
-#exit-full {
-  cursor: zoom-out;
-  opacity: 0;
-  top: 0px;
-  right: 0px;
-  text-align: center;
-  padding: 5px;
-  background-color: transparent;
-  position: fixed;
-  z-index: 1000;
-  display: none;
-}
-#exit-full:hover {
-  opacity: 1;
-}
 .cm-editor {
   border: none;
   border-bottom: 1px solid var(--border);
 }
 
-/* #run,
-#drone,
-#add-button,
-#featured,
-#key {
-  cursor: pointer;
-  background: transparent;
-  border: none;
-} */
-/* .header-button:first-child {
-  fill: var(--color-fourtly);
-  stroke: var(--color-fourtly);
-} */
 .header-button {
   cursor: pointer;
   background: transparent;
@@ -522,28 +465,6 @@ input:focus {
   background-color: var(--icons);
   color: var(--background-thirdly);
 }
-@keyframes fadeInOpacity {
-  0% {
-    width: 15%;
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    width: 15%;
-  }
-}
-
-@keyframes float {
-  0% {
-    transform: translatey(0px);
-  }
-  50% {
-    transform: translatey(-6px);
-  }
-  100% {
-    transform: translatey(0px);
-  }
-}
 
 .cm-completionLabel,
 .cm-completionMatchedText,
@@ -556,56 +477,4 @@ input:focus {
 }
 .cm-searchMatch-selected {
   background-color: #de61b08e !important;
-}
-.float {
-  animation: float 2s ease-in-out infinite;
-}
-.shake {
-  animation: shake-animation 3.52s ease infinite;
-  transform-origin: 50% 50%;
-}
-
-@keyframes shake-animation {
-  0% {
-    transform: translate(0, 0);
-  }
-  1.78571% {
-    transform: translate(5px, 0);
-  }
-  3.57143% {
-    transform: translate(0, 0);
-  }
-  5.35714% {
-    transform: translate(5px, 0);
-  }
-  7.14286% {
-    transform: translate(0, 0);
-  }
-  8.92857% {
-    transform: translate(5px, 0);
-  }
-  10.71429% {
-    transform: translate(0, 0);
-  }
-  90% {
-    transform: translate(0, 0);
-  }
-  91.78571% {
-    transform: translate(5px, 0);
-  }
-  93.57143% {
-    transform: translate(0, 0);
-  }
-  95.35714% {
-    transform: translate(5px, 0);
-  }
-  97.14286% {
-    transform: translate(0, 0);
-  }
-  98.92857% {
-    transform: translate(5px, 0);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
 }

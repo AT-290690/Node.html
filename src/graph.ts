@@ -192,7 +192,7 @@ const cy = cytoscape({
       style: {
         width: 1,
         'target-arrow-fill': 'filled',
-        'target-arrow-shape': 'vee',
+        'target-arrow-shape': 'triangle',
         'target-arrow-color': CURRENT_THEME.edges,
         'curve-style': CURVES.morphism,
         'line-color': CURRENT_THEME.edges,
