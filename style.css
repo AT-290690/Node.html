@@ -255,7 +255,7 @@
   font-size: 18px;
   font-weight: 600;
   position: fixed;
-  bottom: 160px;
+  bottom: 100px;
   display: none;
   background-color: transparent;
   border: none;
@@ -303,7 +303,7 @@
   font-size: 15px;
   font-weight: 600;
   position: fixed;
-  bottom: 100px;
+  bottom: 40px;
   display: none;
   width: fit-content;
   margin: auto;
@@ -323,7 +323,8 @@
   position: absolute;
   border: solid 1px var(--color-secondary);
   background: transparent;
-  top: 0px;
+  top: 10px;
+  left: 15px;
   width: fit-content;
   margin: auto;
   z-index: 2;
@@ -349,47 +350,6 @@ body {
   overflow: hidden;
   margin: 0;
   height: 100vh;
-}
-#console:focus {
-  color: var(--icons);
-  background-color: var(--background-thirdly);
-}
-#console {
-  outline: none;
-  border: none;
-  resize: none;
-  padding-left: 10px;
-  height: 50px;
-  /* margin-left: 50px; */
-  position: fixed;
-  /* pointer-events: none; */
-  border-top: 1px solid var(--border);
-  bottom: 0;
-}
-
-.success_line,
-.error_line,
-.info_line,
-.warn_line {
-  position: absolute;
-  resize: vertical;
-  width: 98%;
-  z-index: 5;
-  font-family: var(--font-primary);
-  font-style: normal;
-  letter-spacing: -0.05em;
-  background-color: var(--background-thirdly);
-  /* visibility: hidden; */
-  padding: 5px;
-  padding-inline-start: 10px;
-}
-.error_line {
-  /* border: var(--border-width) solid #ff275d; */
-  color: #ff275d;
-}
-.info_line {
-  border: var(--border-width) solid var(--comment);
-  color: var(--icons);
 }
 
 #editor-container {
@@ -422,22 +382,13 @@ body {
   stroke: var(--icons);
 }
 #header {
-  right: 0px;
-  bottom: 10px;
+  right: 10px;
+  bottom: 20px;
   height: 50px;
   border: none;
-  padding-left: 10px;
   width: 70px;
-  border-left: 1px solid var(--border);
-  /* height: 30px;
-  min-width: 300px;
-  max-width: 400px; */
-
   display: flex;
-  align-items: center;
-
-  background-color: var(--background-thirdly);
-  /* border-bottom: solid var(--border-width) var(--comment); */
+  background-color: transparent;
   position: fixed;
   z-index: 1000;
 }
@@ -477,4 +428,9 @@ input:focus {
 }
 .cm-searchMatch-selected {
   background-color: #de61b08e !important;
+}
+
+.cm-panels,
+.cm-search {
+  background-color: transparent !important;
 }

@@ -783,7 +783,10 @@ cy.ready(() => {
   // toggleTheme();
   // }
   window.addEventListener('resize', () =>
-    window['CodeMirror'].setSize(window.innerWidth - 5, window.innerHeight - 72)
+    window['CodeMirror'].setSize(
+      window.innerWidth - 30,
+      window.innerHeight - 30
+    )
   );
   elements.treeContainer.focus();
 });
