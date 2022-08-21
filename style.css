@@ -157,41 +157,6 @@
   color: var(--color-primary);
   background-color: transparent;
 }
-#tutorial-container {
-  cursor: pointer;
-  display: none;
-  position: absolute;
-  left: 20px;
-  top: 60px;
-  border: solid 3px var(--color-secondary);
-  z-index: 1;
-}
-#tutorial-next {
-  color: var(--color-primary);
-  font-family: 'Fantastic';
-  padding: 10px;
-  text-align: center;
-  background: var(--background-thirdly);
-  border: none;
-  border-top: 3px solid var(--color-secondary);
-  z-index: 1;
-  cursor: pointer;
-}
-#tutorial-next:active {
-  background-color: var(--color-secondary);
-}
-#tutorial-button {
-  display: none;
-  cursor: pointer;
-  opacity: 0.5;
-  position: absolute;
-  border: none;
-  top: 35px;
-  left: 50px;
-  font-family: var(--font-primary);
-  color: var(--color-primary);
-  background-color: transparent;
-}
 #save:hover,
 #load:hover,
 #zoom-in:hover,
