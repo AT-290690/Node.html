@@ -344,7 +344,7 @@ const openAppWindow = () => {
     comment: window['CodeMirror'].getValue()
   });
   const ancestors = current
-    .predecessors()
+    .predecessors('node')
     .map(x => x.data().comment)
     .reverse();
   const { comment, label, id } = current.data();
