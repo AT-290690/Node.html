@@ -6,6 +6,6 @@
     "module": "es2015",
     "moduleResolution": "node"
   },
-  "include": ["src", "dist/commands"],
+  "include": ["src", "src/commands"],
   "typeRoots": ["src/custom-types", "node_modules/@types"]
 }

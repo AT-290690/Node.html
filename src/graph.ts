@@ -1,4 +1,5 @@
 'use strict';
+
 type Roles = 'node' | 'edge';
 type EdgeVariants = 'Morphism';
 type NodeVariants = 'Object';
@@ -144,16 +145,7 @@ const elements: Record<string, any> = {
   connectionA: document.getElementById('connection-node-A'),
   connectionB: document.getElementById('connection-node-B'),
   commentsSection: document.getElementById('comments-section'),
-  treesPrev: document.getElementById('trees-button-a'),
-  treesNext: document.getElementById('trees-button-b'),
-  treesButton: document.getElementById('trees-button'),
   save: document.getElementById('key')
-  // tutorialButton: document.getElementById('tutorial-button'),
-  // tutorialImage: document.getElementById('tutorial'),
-  // tutorialNext: document.getElementById('tutorial-next'),
-  // tutorialContainer: document.getElementById('tutorial-container'),
-  // themeButton: document.getElementById('theme-button'),
-  // invertButton: document.getElementById('invert-button')
 };
 
 const changeTheme = (theme: ThemeSettings) => {
@@ -271,17 +263,7 @@ const cy = cytoscape({
   motionBlurOpacity: 0.2,
   pixelRatio: 'auto'
 });
-// const convertToString = (buffer: ArrayBuffer | string) =>
-//   typeof buffer === 'string'
-//     ? buffer
-//     : String.fromCharCode.apply(null, new Uint16Array(buffer));
-// const convertToArrayBuffer = (string: string) => {
-//   const buffer = new ArrayBuffer(string.length * 2);
-//   const bufferView = new Uint16Array(buffer);
-//   for (let i = 0, strLen = string.length; i < strLen; i++)
-//     bufferView[i] = string.charCodeAt(i);
-//   return buffer;
-// };
+
 const setIndex = (v: number) => {
   memo.nodeIndex = +v;
   memo.edgeIndex += memo.nodeIndex;
@@ -506,11 +488,6 @@ const renameVariable = (value = DEFAULT_TOKEN) => {
         label: label === '' ? DEFAULT_TOKEN : label
       });
   }
-  // else if (memo.lastSelection.type === 'edge') {
-  //   cy.edges(`#${memo.lastSelection.id}`).first().data({
-  //     label
-  //   });
-  // }
 };
 const eraseCharacter = () =>
   elements.variableInput.value.substring(
@@ -605,153 +582,15 @@ const getElementOffset = (element: Element) => {
   };
 };
 
-// const toggleTheme = () => {
-//   if (CURRENT_THEME.type === 'Dark') {
-//     changeTheme(LIGTH_THEME);
-//     elements.themeButton.textContent = '☾';
-//     elements.tutorialImage.style = 'filter: invert(100)';
-//   } else {
-//     changeTheme(DARK_THEME);
-//     elements.themeButton.textContent = '☼';
-//     elements.tutorialImage.style = 'filter:invert(0)';
-//   }
-//   cy.edges().style({
-//     'target-arrow-fill': 'filled',
-//     'target-arrow-shape': 'vee',
-//     'target-arrow-color': CURRENT_THEME.edges,
-//     'curve-style': CURVES.morphism,
-//     'line-color': CURRENT_THEME.edges,
-//     color: CURRENT_THEME.text
-//   });
-
-//   cy.nodes(`node[label]`).style({
-//     color: CURRENT_THEME.text,
-//     'text-outline-color': CURRENT_THEME.selection
-//   });
-
-//   cy.style([
-//     {
-//       selector: 'core',
-//       style: {
-//         'selection-box-opacity': 0.5,
-//         'selection-box-color': CURRENT_THEME.selectionBox,
-//         'selection-box-border-color': 'transparent',
-//         'active-bg-color': CURRENT_THEME.selectionBox,
-//         'active-bg-opacity': 0.8,
-//         'active-bg-size': 10,
-//         'selection-box-border-width': 0,
-//         'outside-texture-bg-color': 'transparent',
-//         'outside-texture-bg-opacity': 0.5
-//       }
-//     },
-
-//     {
-//       selector: 'edge',
-//       style: {
-//         width: 1,
-//         'target-arrow-fill': 'filled',
-//         'target-arrow-shape': 'vee',
-//         'target-arrow-color': CURRENT_THEME.edges,
-//         'curve-style': CURVES.morphism,
-//         'line-color': CURRENT_THEME.edges,
-//         color: CURRENT_THEME.text
-//       }
-//     },
-//     {
-//       selector: 'edge[label]',
-//       style: {
-//         label: 'data(label)',
-//         'text-outline-color': CURRENT_THEME.nodes,
-//         'text-outline-width': 2,
-//         'font-size': '15px'
-//       }
-//     },
-//     {
-//       selector: 'edge[label]:selected',
-//       style: {
-//         'text-outline-color': CURRENT_THEME.selection,
-//         'text-outline-width': 3
-//       }
-//     },
-//     {
-//       selector: 'node',
-//       style: {
-//         shape: 'rectangle',
-//         'background-opacity': 0,
-//         content: 'data(label)'
-//       }
-//     },
-//     {
-//       selector: 'node[label]',
-//       style: {
-//         color: CURRENT_THEME.text,
-//         'text-outline-color': CURRENT_THEME.selection,
-//         'text-outline-width': 0,
-//         'text-valign': 'center',
-//         'font-size': '15px'
-//       }
-//     },
-//     {
-//       selector: 'node:selected',
-//       style: {
-//         'text-outline-color': CURRENT_THEME.selection,
-//         'text-outline-width': 3
-//       }
-//     },
-//     {
-//       selector: 'node:active',
-//       style: {
-//         'text-outline-width': 3
-//       }
-//     }
-//   ]);
-
-//   localStorage.setItem('theme', CURRENT_THEME.type);
-// };
 cy.on('dblclick', 'node', () => {
   elements.commentsSection.style.display = 'block';
   elements.connectionButton.style.display = 'none';
 });
 cy.ready(() => {
-  // elements.themeButton.addEventListener('click', () => {
-  //   clearSelection();
-  //   toggleTheme();
-  // });
-  // elements.invertButton.addEventListener('click', () => {
-  //   invertEdges();
-  //   clearSelection();
-  // });
-  // let currentTutorialIndex = TUTORIAL_GIFS - 2;
-  // elements.tutorialButton.addEventListener('click', () => {
-  //   if (elements.tutorialContainer.style.display === 'grid') {
-  //     elements.tutorialContainer.style.display = 'none';
-  //     elements.tutorialImage.src = './assets/images/favicon.png';
-  //     elements.tutorialButton.textContent = 'tutorial';
-  //   } else {
-  //     elements.tutorialImage.src = `./assets/gifs/${
-  //       currentTutorialIndex % TUTORIAL_GIFS
-  //     }.gif`;
-  //     elements.tutorialContainer.style.display = 'grid';
-  //     elements.tutorialButton.textContent = 'close';
-  //   }
-  // });
-  // elements.tutorialNext.addEventListener(
-  //   'click',
-  //   () =>
-  //     (elements.tutorialImage.src = `./assets/gifs/${
-  //       ++currentTutorialIndex % TUTORIAL_GIFS
-  //     }.gif`)
-  // );
-
   elements.openEditorButton.addEventListener('click', () => {
     if (memo.lastSelection.id) openAppWindow();
   });
-  // elements.openEditorButton.addEventListener('click', () => {
-  //   if (memo.nodePairsSelections.length >= 1) {
-  //     elements.commentsSection.style.display =
-  //       elements.commentsSection.style.display === 'block' ? 'none' : 'block';
-  //   }
-  // });
+
   elements.connectionButton.addEventListener('click', () => {
     if (memo.nodePairsSelections.length === 2) {
       connectNodes(memo.nodePairsSelections);
@@ -860,15 +699,6 @@ cy.ready(() => {
 
   document.addEventListener('keydown', e => {
     if (elements.commentsSection.style.display === 'none') {
-      // if (e.key === 'Enter') {
-      //   if (memo.nodePairsSelections.length >= 1) {
-      //     elements.commentsSection.style.display = 'block';
-      //     window['CodeMirror'].focus();
-      //   }
-      //   return;
-      // }
-      // || e.key.toLowerCase() === 's' && (e.ctrlKey || e.metaKey)
-
       if (e.key === 'Enter') {
         e.preventDefault();
         e.stopPropagation();
@@ -897,13 +727,6 @@ cy.ready(() => {
       }
 
       if (e.key === 'Delete' || (e.ctrlKey && e.key === 'Backspace')) {
-        // if (memo.lastSelection.type === 'node') {
-        //   hasEdges(memo.lastSelection.id)
-        //     ? removeNodeEdges(memo.lastSelection.id)
-        //     : removeNode(memo.lastSelection.id);
-        // } else if (memo.lastSelection.type === 'edge') {
-        //   removeEdge(memo.lastSelection.id);
-        // }
         cy.elements().forEach(el => {
           if (el.selected()) el.remove();
         });
