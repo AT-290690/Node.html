@@ -1,2 +1,3 @@
 # Node.html
-Visual html graph editor
+
+Graph editor for HTML

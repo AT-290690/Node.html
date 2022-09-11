@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "name": "some2_ct",
+  "name": "node",
   "version": "0.0.1",
   "description": "Summer of Math Exposition 2 Category Theory",
   "main": "index.html",

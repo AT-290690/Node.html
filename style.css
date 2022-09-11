@@ -1,19 +1,19 @@
 :root {
+  --border: #809ac6;
+  --background-primary: #000000;
+  --background-thirdly: #000000;
+  --background-secondary: #b578ff58;
+  --color-primary: #809ac6;
+  --color-secondary: #42c6ff;
+  --color-thirdly: #b578ff;
+  --color-fourtly: #75ff91;
+  --color-fiftly: #2eff85;
   --color-outgoing: #f44d8d;
   --color-incomming: #4df47a;
   --color-inverted: #ebbb8b;
   --gutters: #ebe7e5;
   --comment: #555c77;
   --linenumbers: #3e4d67;
-  --border: #6b84b0;
-  --background-primary: #0000008a;
-  --background-thirdly: #000000;
-  --background-secondary: #313343;
-  --color-primary: #809ac6;
-  --color-secondary: #42c6ff;
-  --color-thirdly: #f8f8f0;
-  --color-fourtly: #75ff91;
-  --color-fiftly: #2eff85;
   --gutters-border: 1px solid transparent;
   --border-width: 1px;
   --error: #e93838;
@@ -43,9 +43,16 @@
   --bracket: #ffc32b;
   --meta: #4f73f6;
   --regexp: #93ddfb;
-  --font-primary: 'Fantastic';
+  --font-family: 'Fantastic';
+  --drone1: #833783;
+  --drone2: orchid;
+  --drone3: pink;
+  --drone4: #2a2c2e;
   --hover: #ec8bd6;
+
+  --font-primary: 'Fantastic';
 }
+
 @font-face {
   font-family: 'Fantastic';
   src: url(./assets/fonts/FantasqueSansMono-Regular.ttf) format('truetype');
@@ -157,27 +164,6 @@
   color: var(--color-primary);
   background-color: transparent;
 }
-#save:hover,
-#load:hover,
-#zoom-in:hover,
-#zoom-out:hover,
-#up:hover,
-#down:hover,
-#left:hover,
-#right:hover,
-#trees-button:hover,
-#tutorial-button:hover,
-#theme-button:hover,
-#invert-button:hover,
-#trees-button-b:hover,
-#trees-button-a:hover,
-#hints-button:hover,
-#identity-button:hover,
-#composition-button:hover,
-#menu-section:hover {
-  border: solid 1px var(--color-primary);
-  opacity: 1;
-}
 
 #hints-button,
 #identity-button,
@@ -220,7 +206,7 @@
   font-size: 18px;
   font-weight: 600;
   position: fixed;
-  bottom: 100px;
+  bottom: 120px;
   display: none;
   background-color: transparent;
   border: none;
@@ -268,7 +254,7 @@
   font-size: 15px;
   font-weight: 600;
   position: fixed;
-  bottom: 40px;
+  bottom: 60px;
   display: none;
   width: fit-content;
   margin: auto;
@@ -288,8 +274,8 @@
   position: absolute;
   border: solid 1px var(--color-secondary);
   background: transparent;
-  top: 10px;
-  left: 15px;
+  top: 0;
+  left: 0;
   width: fit-content;
   margin: auto;
   z-index: 2;
@@ -320,6 +306,17 @@ body {
 #editor-container {
   z-index: 1;
 }
+#app {
+  position: absolute;
+  top: 0;
+  left: 50vw;
+  width: 49.9vw;
+  height: 99.9vh;
+  box-sizing: border-box;
+  z-index: 2;
+  border: none;
+  border-left: solid 1px var(--border);
+}
 @keyframes fadeOutOpacity {
   0% {
     opacity: 1;
@@ -347,26 +344,29 @@ body {
   stroke: var(--icons);
 }
 #header {
-  right: 25px;
-  bottom: 25px;
+  right: 0;
+  top: 15px;
   height: 50px;
+  gap: 10px;
   border: none;
   width: 70px;
-  display: flex;
+  display: grid;
   background-color: transparent;
   position: fixed;
   z-index: 1000;
 }
 
 .cm-editor {
-  border: none;
-  border-bottom: 1px solid var(--border);
+  /* border: none; */
+  padding-left: 10px;
+  border: 1px solid var(--border);
 }
 
 .header-button {
   cursor: pointer;
   background: transparent;
   border: none;
+  width: 50px;
 }
 
 input {
@@ -397,5 +397,53 @@ input:focus {
 
 .cm-panels,
 .cm-search {
-  background-color: transparent !important;
+  background-color: var(--background-primary) !important;
+  max-width: 48.5vw;
+  bottom: 30px;
+}
+#console:focus {
+  color: var(--color-fiftly);
+}
+#console {
+  outline: none;
+  resize: none;
+  position: absolute;
+  bottom: 0;
+  border: none;
+  background: none;
+  font-family: var(--font-primary);
+}
+
+.success_line,
+.error_line,
+.info_line,
+.warn_line {
+  position: absolute;
+  resize: vertical;
+  width: 98%;
+  z-index: 5;
+  font-style: normal;
+  letter-spacing: -0.05em;
+  padding: 5px;
+  padding-inline-start: 10px;
+}
+.error_line {
+  /* border: var(--border-width) solid #ff275d; */
+  color: #ff275d;
+}
+.info_line {
+  border: var(--border-width) solid var(--comment);
+  color: var(--icons);
+}
+#popup-container {
+  position: absolute;
+  bottom: 30px;
+  left: 0px;
+  width: fit-content;
+  z-index: 1000;
+  color: white;
+  background-color: transparent;
+  padding: 10px;
+  display: none;
+  /* border: solid 1px var(--border); */
 }
